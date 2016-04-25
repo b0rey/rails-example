@@ -1,0 +1,13 @@
+<% def draw_tree(children) %>
+	<% children.each do |node| %>
+		<li>
+			<%= link_to node.name, node.path %>
+			<% if node.children.any? %>
+				<ul><% draw_tree(node.children) %></ul>
+			<% end %>
+		</li>
+	<% end %>
+<% end %>
+<ul>
+	<% draw_tree(children) %>
+</ul>
